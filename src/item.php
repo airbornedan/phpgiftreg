@@ -48,7 +48,7 @@ if (isset($_REQUEST["itemid"]) && $_REQUEST["itemid"] != "") {
 $action = "";
 if (!empty($_REQUEST["action"])) {
 	$action = $_REQUEST["action"];
-	
+
 	if ($action == "insert" || $action == "update") {
 		/* validate the data. */
 		$description = trim($_REQUEST["description"]);
@@ -111,7 +111,7 @@ if (!empty($_REQUEST["action"])) {
 			$image_base_filename = basename($image_filename);
 		}
 	}
-	
+
 	if ($action == "delete") {
 		try {
 			/* find out if this item is bought or reserved. */
@@ -132,7 +132,7 @@ if (!empty($_REQUEST["action"])) {
 						$smarty->opt());
 				}
 			}
-	
+
 			deleteImageForItem((int) $_REQUEST["itemid"], $smarty->dbh(), $smarty->opt());
 
 			$stmt = $smarty->dbh()->prepare("DELETE FROM {$opt["table_prefix"]}items WHERE itemid = ?");
@@ -140,7 +140,7 @@ if (!empty($_REQUEST["action"])) {
 			$stmt->execute();
 
 			// TODO: are we leaking allocs records here?
-		
+
 			stampUser($userid, $smarty->dbh(), $smarty->opt());
 			processSubscriptions($userid, $action, $description, $smarty->dbh(), $smarty->opt());
 
@@ -174,7 +174,7 @@ if (!empty($_REQUEST["action"])) {
 		$source = "";
 		$url = "";
 		$category = NULL;
-		$ranking = NULL;
+		$ranking = 3;
 		$comment = "";
 		$quantity = 1;
 		$image_filename = "";
@@ -196,7 +196,7 @@ if (!empty($_REQUEST["action"])) {
 				$stmt->bindParam(10, $image_base_filename, PDO::PARAM_STR);
 			}
 			$stmt->execute();
-			
+
 			stampUser($userid, $smarty->dbh(), $smarty->opt());
 			processSubscriptions($userid, $action, $description, $smarty->dbh(), $smarty->opt());
 
@@ -214,7 +214,7 @@ if (!empty($_REQUEST["action"])) {
 					"category = ?, " .
 					"url = ?, " .
 					"ranking = ?, " .
-					"comment = ?, " . 
+					"comment = ?, " .
 					"quantity = ? " .
 					($image_base_filename != "" ? ", image_filename = ? " : "") .
 					"WHERE itemid = ?");
@@ -239,7 +239,7 @@ if (!empty($_REQUEST["action"])) {
 			processSubscriptions($userid, $action, $description, $smarty->dbh(), $smarty->opt());
 
 			header("Location: " . getFullPath("index.php"));
-			exit;		
+			exit;
 		}
 	}
 	else {

@@ -50,7 +50,7 @@ if (!empty($_GET["action"])) {
 		adjustAllocQuantity($itemid,$userid,0,-1, $smarty->dbh(), $smarty->opt());
 	}
 	else if ($action == "copy") {
-		/* 
+		/*
 		can't do this because MySQL 3.x doesn't seem to support it (at least the version i was using).
 		$query = "INSERT INTO items(userid,description,price,source,url,category) SELECT $userid, description, price, source, url, category FROM items WHERE itemid = " . $_GET["itemid"];
 		*/
@@ -65,7 +65,7 @@ if (!empty($_GET["action"])) {
 			$comment = $row["comment"];
 			$price = (float) $row["price"];
 			$cat = (int) $row["category"];
-		
+
 			$stmt = $smarty->dbh()->prepare("INSERT INTO {$opt["table_prefix"]}items(userid,description,price,source,url,comment,category,ranking,quantity) VALUES(?, ?, ?, ?, ?, ?, ?, 1, 1");
 			$stmt->bindParam(1, $userid, PDO::PARAM_INT);
 			$stmt->bindParam(2, $desc, PDO::PARAM_STR);
@@ -75,7 +75,7 @@ if (!empty($_GET["action"])) {
 			$stmt->bindParam(6, $comment, PDO::PARAM_STR);
 			$stmt->bindParam(7,	$cat, PDO::PARAM_INT);
 			$stmt->execute();
-		
+
 			stampUser($userid, $smarty->dbh(), $smarty->opt());
 
 			$message = "Added '" . $desc . "' to your gift list.";
@@ -92,6 +92,7 @@ $stmt = $smarty->dbh()->prepare("SELECT * FROM {$opt["table_prefix"]}shoppers WH
 $stmt->bindParam(1, $userid, PDO::PARAM_INT);
 $stmt->bindParam(2, $shopfor, PDO::PARAM_INT);
 $stmt->execute();
+
 if (!($stmt->fetch())) {
 	echo "Nice try! (You can't shop for someone who hasn't approved it.)";
 	exit;
@@ -143,9 +144,9 @@ $stmt = $smarty->dbh()->prepare("SELECT i.itemid, description, price, source, c.
 	"LEFT OUTER JOIN {$opt["table_prefix"]}allocs a ON a.itemid = i.itemid AND i.quantity = 1 " .	// only join allocs for single-quantity items.
 	"LEFT OUTER JOIN {$opt["table_prefix"]}users ub ON ub.userid = a.userid AND a.bought = 1 " .
 	"LEFT OUTER JOIN {$opt["table_prefix"]}users ur ON ur.userid = a.userid AND a.bought = 0 " .
-	"WHERE i.userid = $shopfor " .
+	"WHERE i.userid = :shopfor " .
 	"ORDER BY " . $sortby);
-$stmt->bindParam(1, $shopfor, PDO::PARAM_INT);
+$stmt->bindParam(':shopfor', $shopfor, PDO::PARAM_INT);
 $stmt->execute();
 $shoprows = array();
 while ($row = $stmt->fetch()) {

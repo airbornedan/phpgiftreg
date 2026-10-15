@@ -28,3 +28,10 @@ http://www.gnu.org
 
 Copyright 2012 Ryan Walberg <generalpf@gmail.com> @GeneralPF
 
+
+### This fork
+
+`src/` matches the live family site, with placeholder DB credentials and admin
+names. Login comes from Joomla: `src/login.php` matches a Joomla session cookie
+against `jos_session` (active within a day), maps the username to
+`phpgiftreg.users` and starts a session. Admins are hard-coded in that file.

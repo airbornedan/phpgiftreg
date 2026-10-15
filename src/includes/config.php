@@ -18,11 +18,11 @@ function getGlobalOptions() {
 		/* The PDO connection string.
 			http://www.php.net/manual/en/pdo.connections.php
 		*/
-		"pdo_connection_string" => "mysql:host=localhost;dbname=giftreg",
+		"pdo_connection_string" => "mysql:host=localhost;dbname=phpgiftreg",
 
 		/* The database username and password. */
-		"pdo_username" => "giftreg",
-		"pdo_password" => "cn3Malk",
+		"pdo_username" => "DB_USER",
+		"pdo_password" => "DB_PASSWORD",
 
 		/* The maximum number of days before an event which produces a notification. */
 		"event_threshold" => "60",
@@ -121,7 +121,7 @@ function getGlobalOptions() {
 			0 = don't allow images,
 			1 = allow images
 		*/
-		"allow_images" => 1,
+		"allow_images" => 0,
 
 		/* The *sub*-directory we we can store item images.  If you don't want to
 			allow images to be attached to items, leave this variable empty ("").
