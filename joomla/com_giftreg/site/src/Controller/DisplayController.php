@@ -74,16 +74,16 @@ class DisplayController extends BaseController
 
 	public function saveEvent()
 	{
-		$me = $this->begin();
-		Registry::saveEvent($me, $this->input->post->getArray(['description' => 'string', 'eventdate' => 'string', 'recurring' => 'int']));
-		$this->setRedirect($this->page('mylist'));
+		$this->begin();
+		Registry::saveEvent($this->input->post->getArray(['description' => 'string', 'eventdate' => 'string', 'recurring' => 'int']));
+		$this->setRedirect($this->page('family') . '#dates');
 	}
 
 	public function deleteEvent()
 	{
-		$me = $this->begin();
-		Registry::deleteEvent($this->input->post->getInt('id', 0), $me);
-		$this->setRedirect($this->page('mylist'));
+		$this->begin();
+		Registry::deleteEvent($this->input->post->getInt('id', 0));
+		$this->setRedirect($this->page('family') . '#dates');
 	}
 
 	public function dismissNotices()

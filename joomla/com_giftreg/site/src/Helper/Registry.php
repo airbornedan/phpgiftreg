@@ -11,7 +11,8 @@ use Joomla\Database\ParameterType;
  * All gift-registry data access. Rules:
  * - everyone with a site login is family and may shop for anyone;
  * - an owner never sees who reserved or bought their items;
- * - deleting a reserved item leaves the shopper an in-app notice.
+ * - deleting a reserved item leaves the shopper an in-app notice;
+ * - family dates are one shared list anyone can edit.
  */
 class Registry
 {
@@ -171,32 +172,32 @@ class Registry
 		return $db->setQuery($q)->loadObjectList();
 	}
 
-	public static function events(int $owner): array
+	/** Family dates (birthdays etc.): one shared list anyone can add to or remove from. */
+	public static function events(): array
 	{
 		$db = self::db();
 		$q  = $db->getQuery(true)->select('*')->from('#__giftreg_events')
-			->where('user_id = :u')->bind(':u', $owner, ParameterType::INTEGER)->order('eventdate');
+			->order(['MONTH(eventdate)', 'DAY(eventdate)']);
 		return $db->setQuery($q)->loadObjectList();
 	}
 
-	public static function saveEvent(int $owner, array $data): void
+	public static function saveEvent(array $data): void
 	{
 		$date = date_create($data['eventdate']);
 		if (!$date || trim($data['description']) === '') {
 			return;
 		}
 		$row = (object) [
-			'user_id' => $owner, 'description' => trim($data['description']),
+			'user_id' => 0, 'description' => trim($data['description']),
 			'eventdate' => $date->format('Y-m-d'), 'recurring' => empty($data['recurring']) ? 0 : 1,
 		];
 		self::db()->insertObject('#__giftreg_events', $row);
 	}
 
-	public static function deleteEvent(int $id, int $owner): void
+	public static function deleteEvent(int $id): void
 	{
 		$db = self::db();
-		$q  = $db->getQuery(true)->delete('#__giftreg_events')->where('id = :id')->where('user_id = :u')
-			->bind(':id', $id, ParameterType::INTEGER)->bind(':u', $owner, ParameterType::INTEGER);
+		$q  = $db->getQuery(true)->delete('#__giftreg_events')->where('id = :id')->bind(':id', $id, ParameterType::INTEGER);
 		$db->setQuery($q)->execute();
 	}
 
@@ -204,8 +205,10 @@ class Registry
 	public static function upcoming(): array
 	{
 		$db    = self::db();
+		// user_id 0 = a family date (birthdays etc. kept for everyone), shown without a name.
 		$q     = $db->getQuery(true)->select(['e.*', 'u.name'])->from('#__giftreg_events AS e')
-			->join('INNER', '#__users AS u ON u.id = e.user_id AND u.block = 0');
+			->join('LEFT', '#__users AS u ON u.id = e.user_id')
+			->where('(e.user_id = 0 OR u.block = 0)');
 		$today = new \DateTimeImmutable('today');
 		$out   = [];
 		foreach ($db->setQuery($q)->loadObjectList() as $e) {

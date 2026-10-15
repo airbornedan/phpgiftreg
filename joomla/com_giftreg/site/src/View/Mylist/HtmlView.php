@@ -10,7 +10,6 @@ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 class HtmlView extends BaseHtmlView
 {
 	public $items;
-	public $events;
 	public $categories;
 	public $edit;
 
@@ -18,7 +17,6 @@ class HtmlView extends BaseHtmlView
 	{
 		$me               = (int) Factory::getApplication()->getIdentity()->id;
 		$this->items      = Registry::items($me);
-		$this->events     = Registry::events($me);
 		$this->categories = Registry::categories();
 		$edit             = Registry::item(Factory::getApplication()->getInput()->getInt('edit', 0));
 		$this->edit       = $edit && (int) $edit->user_id === $me ? $edit : null;

@@ -13,6 +13,7 @@ class HtmlView extends BaseHtmlView
 	public $people;
 	public $upcoming;
 	public $notices;
+	public $events;
 
 	public function display($tpl = null)
 	{
@@ -20,6 +21,7 @@ class HtmlView extends BaseHtmlView
 		$this->people   = Registry::people();
 		$this->upcoming = Registry::upcoming();
 		$this->notices  = Registry::notices($this->me);
+		$this->events   = Registry::events();
 		parent::display($tpl);
 	}
 }

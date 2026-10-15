@@ -67,25 +67,4 @@ $v = fn ($field, $default = '') => $this->escape($e->$field ?? $default);
 		</div>
 	</form>
 
-	<h2 class="h4">My dates</h2>
-	<p class="text-muted">Birthdays and such show on the family page in the <?php echo Registry::EVENT_DAYS; ?> days before.</p>
-	<?php if ($this->events) : ?>
-		<ul>
-			<?php foreach ($this->events as $ev) : ?>
-				<li><?php echo $this->escape($ev->description); ?>,
-					<?php echo HTMLHelper::_('date', $ev->eventdate, $ev->recurring ? 'F j' : 'F j, Y', null); ?>
-					<?php echo $ev->recurring ? '(every year)' : ''; ?>
-					<?php echo giftregButton('deleteEvent', ['id' => $ev->id], 'Remove', 'btn-link btn-sm text-danger', 'Remove this date?'); ?></li>
-			<?php endforeach; ?>
-		</ul>
-	<?php endif; ?>
-	<form method="post" action="<?php echo Route::_('index.php?option=com_giftreg'); ?>" class="row g-2 align-items-end">
-		<div class="col-md-5"><label class="form-label">What</label><input class="form-control" name="description" required maxlength="100" placeholder="Birthday"></div>
-		<div class="col-md-3"><label class="form-label">Date</label><input class="form-control" name="eventdate" type="date" required></div>
-		<div class="col-md-2 form-check ms-2"><input class="form-check-input" type="checkbox" name="recurring" value="1" checked id="gr-rec">
-			<label class="form-check-label" for="gr-rec">Every year</label></div>
-		<div class="col-md-1">
-			<input type="hidden" name="task" value="saveEvent"><?php echo HTMLHelper::_('form.token'); ?>
-			<button class="btn btn-primary">Add</button></div>
-	</form>
 </div>
