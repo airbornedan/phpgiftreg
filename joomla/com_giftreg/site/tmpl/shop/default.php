@@ -21,7 +21,7 @@ require dirname(__DIR__) . '/_common.php';
 						<?php if ($i->comment) : ?><br><small><?php echo nl2br($this->escape($i->comment)); ?></small><?php endif; ?></td>
 					<td><?php echo giftregStars((int) $i->ranking); ?></td>
 					<td><?php echo giftregPrice($i->price); ?></td>
-					<td><?php echo $this->escape($i->source); ?></td>
+					<td><?php echo giftregSource($i); ?></td>
 					<td class="text-nowrap">
 						<?php if ($taken) : ?>
 							<i><?php echo $i->bought ? 'Bought' : 'Reserved'; ?> by <?php echo $this->escape($i->shopper); ?>.</i>

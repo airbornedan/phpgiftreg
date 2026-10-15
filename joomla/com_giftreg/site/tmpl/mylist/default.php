@@ -22,7 +22,7 @@ $v = fn ($field, $default = '') => $this->escape($e->$field ?? $default);
 						<?php if ($i->comment) : ?><br><small><?php echo nl2br($this->escape($i->comment)); ?></small><?php endif; ?></td>
 					<td><?php echo giftregStars((int) $i->ranking); ?></td>
 					<td><?php echo giftregPrice($i->price); ?></td>
-					<td><?php echo $this->escape($i->source); ?></td>
+					<td><?php echo giftregSource($i); ?></td>
 					<td class="text-nowrap">
 						<a href="<?php echo Route::_('index.php?option=com_giftreg&view=mylist&edit=' . (int) $i->id); ?>#item-form"><?php echo giftregIcon('pencil.png', 'Edit Item'); ?></a>
 						<?php echo giftregButton('deleteItem', ['id' => $i->id], 'Delete Item', '', 'Delete this item?', 'bin.png'); ?>

@@ -56,6 +56,16 @@ if (!function_exists('giftregNav')) {
 		return $price === null ? '' : '$' . number_format((float) $price, 2);
 	}
 
+	/** Where to get it, linked to the item's URL when it has one. */
+	function giftregSource(object $item): string
+	{
+		$text = htmlspecialchars($item->source);
+		if ($text !== '' && preg_match('#^https?://#i', $item->url)) {
+			return '<a href="' . htmlspecialchars($item->url) . '" target="_blank" rel="noopener" style="text-decoration:none">' . $text . '</a>';
+		}
+		return $text;
+	}
+
 	/** The description, then a link icon when the item has a URL. */
 	function giftregTitle(object $item): string
 	{

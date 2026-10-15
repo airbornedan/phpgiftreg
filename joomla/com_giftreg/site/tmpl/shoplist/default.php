@@ -15,7 +15,7 @@ require dirname(__DIR__) . '/_common.php';
 					<td><?php echo $this->escape($i->owner); ?></td>
 					<td><?php echo giftregTitle($i); ?></td>
 					<td><?php echo giftregPrice($i->price); ?></td>
-					<td><?php echo $this->escape($i->source); ?></td>
+					<td><?php echo giftregSource($i); ?></td>
 					<td class="text-nowrap">
 						<?php if ($i->bought) : ?>
 							<i>Bought.</i> <?php echo giftregButton('release', ['item' => $i->id], 'Return Item', '', '', 'return.png'); ?>
