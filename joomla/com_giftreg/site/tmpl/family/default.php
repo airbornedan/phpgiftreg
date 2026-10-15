@@ -15,7 +15,7 @@ require dirname(__DIR__) . '/_common.php';
 			<?php foreach ($this->notices as $n) : ?>
 				<p class="mb-1"><?php echo $this->escape($n->message); ?></p>
 			<?php endforeach; ?>
-			<?php echo giftregButton('dismissNotices', [], 'Got it', 'btn-warning'); ?>
+			<?php echo giftregButton('dismissNotices', [], 'Acknowledge', '', '', 'delete.png'); ?>
 		</div>
 	<?php endif; ?>
 
@@ -39,6 +39,7 @@ require dirname(__DIR__) . '/_common.php';
 						<a href="<?php echo Route::_('index.php?option=com_giftreg&view=mylist'); ?>"><?php echo $this->escape($p->name); ?></a> (you)
 					<?php else : ?>
 						<a href="<?php echo Route::_('index.php?option=com_giftreg&view=shop&id=' . (int) $p->id); ?>"><?php echo $this->escape($p->name); ?></a>
+						<a href="<?php echo Route::_('index.php?option=com_giftreg&view=shop&id=' . (int) $p->id); ?>"><?php echo giftregIcon('store.png', 'Shop for ' . $p->name); ?></a>
 					<?php endif; ?>
 				</td>
 				<td class="text-end"><?php echo (int) $p->items; ?> item<?php echo $p->items == 1 ? '' : 's'; ?></td>
@@ -54,7 +55,7 @@ require dirname(__DIR__) . '/_common.php';
 				<li><?php echo $this->escape($ev->description); ?>,
 					<?php echo HTMLHelper::_('date', $ev->eventdate, $ev->recurring ? 'F j' : 'F j, Y', null); ?>
 					<?php echo $ev->recurring ? '(every year)' : ''; ?>
-					<?php echo giftregButton('deleteEvent', ['id' => $ev->id], 'Remove', 'btn-link btn-sm text-danger', 'Remove this date?'); ?></li>
+					<?php echo giftregButton('deleteEvent', ['id' => $ev->id], 'Delete Event', '', 'Remove this date?', 'bin.png'); ?></li>
 			<?php endforeach; ?>
 		</ul>
 	<?php endif; ?>

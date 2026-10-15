@@ -19,22 +19,29 @@ require dirname(__DIR__) . '/_common.php';
 				<tr class="<?php echo $taken ? 'text-muted' : ''; ?>">
 					<td><?php echo giftregTitle($i); ?>
 						<?php if ($i->comment) : ?><br><small><?php echo nl2br($this->escape($i->comment)); ?></small><?php endif; ?></td>
-					<td><small><?php echo Registry::RANKS[$i->ranking] ?? ''; ?></small></td>
+					<td><?php echo giftregStars((int) $i->ranking); ?></td>
 					<td><?php echo giftregPrice($i->price); ?></td>
 					<td><?php echo $this->escape($i->source); ?></td>
 					<td class="text-nowrap">
 						<?php if ($taken) : ?>
-							<?php echo $i->bought ? 'Bought' : 'Reserved'; ?> by <?php echo $this->escape($i->shopper); ?>
+							<i><?php echo $i->bought ? 'Bought' : 'Reserved'; ?> by <?php echo $this->escape($i->shopper); ?>.</i>
 						<?php elseif ($mine) : ?>
-							<?php if (!$i->bought) : echo giftregButton('buy', ['item' => $i->id], 'I bought it', 'btn-success'); endif; ?>
-							<?php echo giftregButton('release', ['item' => $i->id], $i->bought ? 'Undo bought' : 'Release'); ?>
+							<i><b><?php echo $i->bought ? 'Bought' : 'Reserved'; ?> by you.</b></i>
+							<?php if ($i->bought) : echo giftregButton('release', ['item' => $i->id], 'Return Item', '', '', 'return.png');
+							else : echo giftregButton('release', ['item' => $i->id], 'Release Item', '', '', 'unlocked.png');
+								echo giftregButton('buy', ['item' => $i->id], 'Purchase Item', '', '', 'credit-card-3.png'); endif; ?>
 						<?php else : ?>
-							<?php echo giftregButton('reserve', ['item' => $i->id], 'Reserve', 'btn-primary'); ?>
-							<?php echo giftregButton('buy', ['item' => $i->id], 'Bought'); ?>
+							<i>Available.</i>
+							<?php echo giftregButton('reserve', ['item' => $i->id], 'Reserve Item', '', '', 'locked.png'); ?>
+							<?php echo giftregButton('buy', ['item' => $i->id], 'Purchase Item', '', '', 'credit-card-3.png'); ?>
 						<?php endif; ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
 		</table>
+		<div class="alert alert-info">
+			<?php echo giftregIcon('locked.png', 'Reserve'); ?> = Reserve, <?php echo giftregIcon('unlocked.png', 'Release'); ?> = Release,
+			<?php echo giftregIcon('credit-card-3.png', 'Purchase'); ?> = Purchase, <?php echo giftregIcon('return.png', 'Return'); ?> = Return
+		</div>
 	<?php endif; ?>
 </div>

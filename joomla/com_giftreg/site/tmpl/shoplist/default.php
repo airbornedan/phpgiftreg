@@ -18,10 +18,11 @@ require dirname(__DIR__) . '/_common.php';
 					<td><?php echo $this->escape($i->source); ?></td>
 					<td class="text-nowrap">
 						<?php if ($i->bought) : ?>
-							Bought <?php echo giftregButton('release', ['item' => $i->id], 'Undo'); ?>
+							<i>Bought.</i> <?php echo giftregButton('release', ['item' => $i->id], 'Return Item', '', '', 'return.png'); ?>
 						<?php else : ?>
-							<?php echo giftregButton('buy', ['item' => $i->id], 'I bought it', 'btn-success'); ?>
-							<?php echo giftregButton('release', ['item' => $i->id], 'Release'); ?>
+							<i>Reserved.</i>
+							<?php echo giftregButton('release', ['item' => $i->id], 'Release Item', '', '', 'unlocked.png'); ?>
+							<?php echo giftregButton('buy', ['item' => $i->id], 'Purchase Item', '', '', 'credit-card-3.png'); ?>
 						<?php endif; ?>
 					</td>
 				</tr>

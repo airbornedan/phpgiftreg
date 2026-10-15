@@ -20,12 +20,12 @@ $v = fn ($field, $default = '') => $this->escape($e->$field ?? $default);
 				<tr>
 					<td><?php echo giftregTitle($i); ?>
 						<?php if ($i->comment) : ?><br><small><?php echo nl2br($this->escape($i->comment)); ?></small><?php endif; ?></td>
-					<td><small><?php echo Registry::RANKS[$i->ranking] ?? ''; ?></small></td>
+					<td><?php echo giftregStars((int) $i->ranking); ?></td>
 					<td><?php echo giftregPrice($i->price); ?></td>
 					<td><?php echo $this->escape($i->source); ?></td>
 					<td class="text-nowrap">
-						<a class="btn btn-sm btn-outline-secondary" href="<?php echo Route::_('index.php?option=com_giftreg&view=mylist&edit=' . (int) $i->id); ?>#item-form">Edit</a>
-						<?php echo giftregButton('deleteItem', ['id' => $i->id], 'Delete', 'btn-outline-danger', 'Delete this item?'); ?>
+						<a href="<?php echo Route::_('index.php?option=com_giftreg&view=mylist&edit=' . (int) $i->id); ?>#item-form"><?php echo giftregIcon('pencil.png', 'Edit Item'); ?></a>
+						<?php echo giftregButton('deleteItem', ['id' => $i->id], 'Delete Item', '', 'Delete this item?', 'bin.png'); ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
