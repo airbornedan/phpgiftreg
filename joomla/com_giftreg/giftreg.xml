@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+	<name>com_giftreg</name>
+	<author>airbornedan</author>
+	<creationDate>2026-10</creationDate>
+	<version>0.1.0</version>
+	<description>COM_GIFTREG_XML_DESCRIPTION</description>
+	<namespace path="src">Hughes\Component\Giftreg</namespace>
+	<install><sql><file driver="mysql" charset="utf8">sql/install.mysql.sql</file></sql></install>
+	<uninstall><sql><file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file></sql></uninstall>
+	<files folder="site">
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+	<languages folder="site/language">
+		<language tag="en-GB">en-GB/com_giftreg.ini</language>
+	</languages>
+	<administration>
+		<menu>COM_GIFTREG</menu>
+		<files folder="admin">
+			<folder>services</folder>
+			<folder>sql</folder>
+			<folder>src</folder>
+			<folder>tmpl</folder>
+		</files>
+		<languages folder="admin/language">
+			<language tag="en-GB">en-GB/com_giftreg.ini</language>
+			<language tag="en-GB">en-GB/com_giftreg.sys.ini</language>
+		</languages>
+	</administration>
+</extension>
