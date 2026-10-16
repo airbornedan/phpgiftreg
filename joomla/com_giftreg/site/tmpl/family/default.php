@@ -3,69 +3,109 @@ defined('_JEXEC') or die;
 
 use Hughes\Component\Giftreg\Site\Helper\Registry;
 use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Router\Route;
 
 require dirname(__DIR__) . '/_common.php';
+$items = giftregSorted($this->items, ['description' => 'description', 'ranking' => 'ranking', 'category' => 'category', 'price' => 'price']);
+$date  = fn ($d) => $d ? HTMLHelper::_('date', $d, 'm/d/Y') : '';
 ?>
 <div class="giftreg">
 	<?php echo giftregNav('family'); ?>
 
-	<?php if ($this->notices) : ?>
-		<div class="alert alert-warning">
-			<?php foreach ($this->notices as $n) : ?>
-				<p class="mb-1"><?php echo $this->escape($n->message); ?></p>
-			<?php endforeach; ?>
-			<?php echo giftregButton('dismissNotices', [], 'Acknowledge', '', '', 'delete.png'); ?>
+	<section id="myitems">
+		<div class="gr-well">
+			<div class="gr-page-header"><h1>My Items</h1></div>
+			<table class="gr-table gr-table-bordered gr-table-striped">
+				<thead>
+					<tr>
+						<th><?php echo giftregSortLink('family', '', 'description', 'Description'); ?></th>
+						<th><?php echo giftregSortLink('family', '', 'ranking', 'Ranking'); ?></th>
+						<th><?php echo giftregSortLink('family', '', 'category', 'Category'); ?></th>
+						<th><?php echo giftregSortLink('family', '', 'price', 'Price'); ?></th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($items as $i) : ?>
+						<tr valign="top">
+							<td><?php echo giftregTitle($i); ?></td>
+							<td nowrap><?php echo giftregStars((int) $i->ranking); ?></td>
+							<td><?php echo $this->escape($i->category); ?></td>
+							<td align="right"><?php echo giftregPrice($i->price); ?></td>
+							<td align="right" nowrap>
+								<a href="<?php echo giftregPage('mylist', '&edit=' . (int) $i->id); ?>"><?php echo giftregIcon('pencil.png', 'Edit Item'); ?></a>
+								<?php echo giftregButton('deleteItem', ['id' => $i->id], 'Delete Item', 'bin.png', 'Are you sure you want to delete "' . $i->description . '"?'); ?>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+			<h5><a href="<?php echo giftregPage('mylist'); ?>">Add a new item</a></h5>
 		</div>
-	<?php endif; ?>
+	</section>
 
-	<?php if ($this->upcoming) : ?>
-		<h2 class="h4">Coming up</h2>
-		<ul>
-			<?php foreach ($this->upcoming as $e) : ?>
-				<li><?php echo $this->escape(($e->name ? $e->name . ': ' : '') . $e->description); ?>,
-					<?php echo $e->next->format('M j'); ?>
-					(<?php echo $e->days === 0 ? 'today' : ($e->days === 1 ? 'tomorrow' : 'in ' . $e->days . ' days'); ?>)</li>
-			<?php endforeach; ?>
-		</ul>
-	<?php endif; ?>
-
-	<h2 class="h4">Lists</h2>
-	<table class="table table-sm">
-		<?php foreach ($this->people as $p) : ?>
-			<tr>
-				<td>
-					<?php if ((int) $p->id === $this->me) : ?>
-						<a href="<?php echo Route::_('index.php?option=com_giftreg&view=mylist'); ?>"><?php echo $this->escape($p->name); ?></a> (you)
-					<?php else : ?>
-						<a href="<?php echo Route::_('index.php?option=com_giftreg&view=shop&id=' . (int) $p->id); ?>"><?php echo $this->escape($p->name); ?></a>
-						<a href="<?php echo Route::_('index.php?option=com_giftreg&view=shop&id=' . (int) $p->id); ?>"><?php echo giftregIcon('store.png', 'Shop for ' . $p->name); ?></a>
-					<?php endif; ?>
-				</td>
-				<td class="text-end"><?php echo (int) $p->items; ?> item<?php echo $p->items == 1 ? '' : 's'; ?></td>
-			</tr>
-		<?php endforeach; ?>
-	</table>
-
-	<h2 class="h4" id="dates">Family dates</h2>
-	<p class="text-muted">Anyone can add or remove these. Each shows under Coming up in the <?php echo Registry::EVENT_DAYS; ?> days before.</p>
-	<?php if ($this->events) : ?>
-		<ul>
-			<?php foreach ($this->events as $ev) : ?>
-				<li><?php echo $this->escape($ev->description); ?>,
-					<?php echo HTMLHelper::_('date', $ev->eventdate, $ev->recurring ? 'F j' : 'F j, Y', null); ?>
-					<?php echo $ev->recurring ? '(every year)' : ''; ?>
-					<?php echo giftregButton('deleteEvent', ['id' => $ev->id], 'Delete Event', '', 'Remove this date?', 'bin.png'); ?></li>
-			<?php endforeach; ?>
-		</ul>
-	<?php endif; ?>
-	<form method="post" action="<?php echo Route::_('index.php?option=com_giftreg'); ?>" class="row g-2 align-items-end">
-		<div class="col-md-5"><label class="form-label">What</label><input class="form-control" name="description" required maxlength="100" placeholder="Birthday"></div>
-		<div class="col-md-3"><label class="form-label">Date</label><input class="form-control" name="eventdate" type="date" required></div>
-		<div class="col-md-2 form-check ms-2"><input class="form-check-input" type="checkbox" name="recurring" value="1" checked id="gr-rec">
-			<label class="form-check-label" for="gr-rec">Every year</label></div>
-		<div class="col-md-1">
-			<input type="hidden" name="task" value="saveEvent"><?php echo HTMLHelper::_('form.token'); ?>
-			<button class="btn btn-primary">Add</button></div>
-	</form>
+	<section id="otherstuff">
+		<div class="gr-row">
+			<div class="gr-span6">
+				<div class="gr-well">
+					<h3>People I'm shopping for</h3>
+					<table class="gr-table gr-table-bordered gr-table-striped">
+						<thead>
+							<tr><th>Name</th><th>Last Updated</th><th># Items</th><th>&nbsp;</th></tr>
+						</thead>
+						<tbody>
+							<?php foreach ($this->people as $p) : if ((int) $p->id === $this->me) continue; ?>
+								<tr>
+									<td><a href="<?php echo giftregPage('shop', '&id=' . (int) $p->id); ?>"><?php echo $this->escape($p->name); ?></a></td>
+									<td align="right"><?php echo $date($p->updated); ?></td>
+									<td align="right"><?php echo (int) $p->items; ?></td>
+									<td align="right" nowrap>
+										<?php if ($p->items) : ?>
+											<a href="<?php echo giftregPage('shop', '&id=' . (int) $p->id); ?>"><?php echo giftregIcon('store.png', 'Shop for ' . $p->name); ?></a>
+										<?php endif; ?>
+									</td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="gr-span6">
+				<div class="gr-well">
+					<h3>Upcoming events (within <?php echo Registry::EVENT_DAYS; ?> days)</h3>
+					<table class="gr-table gr-table-bordered gr-table-striped">
+						<thead>
+							<tr><th>Name</th><th>Event</th><th>Date</th><th>Days left</th></tr>
+						</thead>
+						<tbody>
+							<?php foreach ($this->upcoming as $e) : ?>
+								<tr>
+									<td><?php echo $this->escape($e->name); ?></td>
+									<td><?php echo $this->escape($e->description); ?></td>
+									<td><?php echo $e->next->format('m/d/Y'); ?></td>
+									<td><?php echo $e->days; ?></td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+				</div>
+				<div class="gr-well">
+					<h3>Messages</h3>
+					<table class="gr-table gr-table-bordered gr-table-striped">
+						<thead>
+							<tr><th>Date</th><th>Message</th><th>&nbsp;</th></tr>
+						</thead>
+						<tbody>
+							<?php foreach ($this->notices as $n) : ?>
+								<tr>
+									<td><?php echo $date($n->created); ?></td>
+									<td><?php echo $this->escape($n->message); ?></td>
+									<td align="right"><?php echo giftregButton('dismissNotices', ['id' => $n->id], 'Acknowledge', 'delete.png'); ?></td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
 </div>

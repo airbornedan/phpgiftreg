@@ -3,7 +3,7 @@
 	<name>com_giftreg</name>
 	<author>airbornedan</author>
 	<creationDate>2026-10</creationDate>
-	<version>0.1.1</version>
+	<version>0.2.0</version>
 	<description>COM_GIFTREG_XML_DESCRIPTION</description>
 	<namespace path="src">Hughes\Component\Giftreg</namespace>
 	<install><sql><file driver="mysql" charset="utf8">sql/install.mysql.sql</file></sql></install>
@@ -13,7 +13,9 @@
 		<folder>tmpl</folder>
 	</files>
 	<media destination="com_giftreg" folder="media">
+		<folder>css</folder>
 		<folder>images</folder>
+		<folder>js</folder>
 	</media>
 	<languages folder="site/language">
 		<language tag="en-GB">en-GB/com_giftreg.ini</language>

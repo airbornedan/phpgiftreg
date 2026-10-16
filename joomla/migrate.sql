@@ -19,8 +19,10 @@ JOIN jos_users j ON j.username = CONVERT(u.username USING utf8mb4) COLLATE utf8m
 
 INSERT INTO jos_giftreg_items (id, user_id, description, price, source, url, ranking, category_id, comment, created, modified)
 SELECT i.itemid, m.new_id, i.description, NULLIF(i.price, 0), i.source, COALESCE(i.url, ''),
-       LEAST(GREATEST(i.ranking, 1), 5), NULLIF(i.category, 0), i.comment, @now, @now
+       LEAST(GREATEST(i.ranking, 1), 5), NULLIF(i.category, 0), i.comment,
+       COALESCE(u.list_stamp, @now), COALESCE(u.list_stamp, @now)          -- the old list's "Last Updated"
 FROM phpgiftreg.items i
+JOIN phpgiftreg.users u ON u.userid = i.userid
 JOIN gr_usermap m ON m.old_id = i.userid;
 
 -- One shopper per item; a reserved+bought pair for the same shopper becomes bought.

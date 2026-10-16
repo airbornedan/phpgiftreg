@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic");
+/* Old phpgiftreg theme (Bootstrap 2.3.2 + Bootswatch, Apache 2.0), scoped to .giftreg with gr- classes. */
+.giftreg a:focus{outline:thin dotted #333;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}
+.giftreg a:hover,.giftreg a:active{outline:0}
+.giftreg img{width:auto\9;height:auto;max-width:100%;vertical-align:middle;border:0;-ms-interpolation-mode:bicubic}
+.giftreg #map_canvas img{max-width:none}
+.giftreg button,.giftreg input,.giftreg select,.giftreg textarea{margin:0;font-size:100%;vertical-align:middle}
+.giftreg button,.giftreg input{line-height:normal}
+.giftreg button,.giftreg input[type="reset"],.giftreg input[type="submit"]{cursor:pointer;-webkit-appearance:button}
+.giftreg label,.giftreg select,.giftreg button,.giftreg input[type="button"],.giftreg input[type="reset"],.giftreg input[type="submit"],.giftreg input[type="radio"],.giftreg input[type="checkbox"]{cursor:pointer}
+.giftreg input[type="search"]{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-appearance:textfield}
+.giftreg textarea{overflow:auto;vertical-align:top}
+.giftreg{margin:0;font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px;line-height:20px;color:#555;background-color:#fff}
+.giftreg a{color:#444;text-decoration:none}
+.giftreg a:hover,.giftreg a:focus{color:#1dd2af;text-decoration:underline}
+.giftreg p{margin:0 0 10px}
+.giftreg small{font-size:85%}
+.giftreg strong{font-weight:bold}
+.giftreg em{font-style:italic}
+.giftreg .gr-muted{color:#b4bcc2}
+.giftreg a.gr-muted:hover,.giftreg a.gr-muted:focus{color:#98a3ab}
+.giftreg .gr-text-right{text-align:right}
+.giftreg h1,.giftreg h2,.giftreg h3,.giftreg h4,.giftreg h5,.giftreg h6{margin:10px 0;font-family:inherit;font-weight:bold;line-height:20px;color:inherit;text-rendering:optimizelegibility}
+.giftreg h1 small,.giftreg h2 small,.giftreg h3 small,.giftreg h4 small,.giftreg h5 small,.giftreg h6 small{font-weight:normal;line-height:1;color:#b4bcc2}
+.giftreg h1,.giftreg h2,.giftreg h3{line-height:40px}
+.giftreg h1{font-size:41.25px}
+.giftreg h2{font-size:33.75px}
+.giftreg h3{font-size:26.25px}
+.giftreg h4{font-size:18.75px}
+.giftreg h5{font-size:15px}
+.giftreg h6{font-size:12.75px}
+.giftreg h1 small{font-size:26.25px}
+.giftreg h2 small{font-size:18.75px}
+.giftreg h3 small{font-size:15px}
+.giftreg h4 small{font-size:15px}
+.giftreg .gr-page-header{padding-bottom:9px;margin:20px 0 30px;border-bottom:1px solid #ecf0f1}
+.giftreg ul,.giftreg ol{padding:0;margin:0 0 10px 25px}
+.giftreg ul ul,.giftreg ul ol,.giftreg ol ol,.giftreg ol ul{margin-bottom:0}
+.giftreg li{line-height:20px}
+.giftreg fieldset{padding:0;margin:0;border:0}
+.giftreg legend{display:block;width:100%;padding:0;margin-bottom:20px;font-size:22.5px;line-height:40px;color:#7b8a8b;border:0;border-bottom:1px solid #e5e5e5}
+.giftreg legend small{font-size:15px;color:#b4bcc2}
+.giftreg label,.giftreg input,.giftreg button,.giftreg select,.giftreg textarea{font-size:15px;font-weight:normal;line-height:20px}
+.giftreg input,.giftreg button,.giftreg select,.giftreg textarea{font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif}
+.giftreg label{display:block;margin-bottom:5px}
+.giftreg select,.giftreg textarea,.giftreg input[type="text"],.giftreg input[type="password"],.giftreg input[type="datetime"],.giftreg input[type="datetime-local"],.giftreg input[type="date"],.giftreg input[type="month"],.giftreg input[type="time"],.giftreg input[type="week"],.giftreg input[type="number"],.giftreg input[type="email"],.giftreg input[type="url"],.giftreg input[type="search"],.giftreg input[type="tel"],.giftreg input[type="color"]{display:inline-block;height:20px;padding:4px 6px;margin-bottom:10px;font-size:15px;line-height:20px;color:#95a5a6;vertical-align:middle;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px}
+.giftreg input,.giftreg textarea{width:206px}
+.giftreg textarea{height:auto}
+.giftreg textarea,.giftreg input[type="text"],.giftreg input[type="password"],.giftreg input[type="datetime"],.giftreg input[type="datetime-local"],.giftreg input[type="date"],.giftreg input[type="month"],.giftreg input[type="time"],.giftreg input[type="week"],.giftreg input[type="number"],.giftreg input[type="email"],.giftreg input[type="url"],.giftreg input[type="search"],.giftreg input[type="tel"],.giftreg input[type="color"]{background-color:#fff;border:1px solid #dce4ec;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-webkit-transition:border linear .2s,box-shadow linear .2s;-moz-transition:border linear .2s,box-shadow linear .2s;-o-transition:border linear .2s,box-shadow linear .2s;transition:border linear .2s,box-shadow linear .2s}
+.giftreg textarea:focus,.giftreg input[type="text"]:focus,.giftreg input[type="password"]:focus,.giftreg input[type="datetime"]:focus,.giftreg input[type="datetime-local"]:focus,.giftreg input[type="date"]:focus,.giftreg input[type="month"]:focus,.giftreg input[type="time"]:focus,.giftreg input[type="week"]:focus,.giftreg input[type="number"]:focus,.giftreg input[type="email"]:focus,.giftreg input[type="url"]:focus,.giftreg input[type="search"]:focus,.giftreg input[type="tel"]:focus,.giftreg input[type="color"]:focus{border-color:rgba(82,168,236,0.8);outline:0;outline:thin dotted \9;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6)}
+.giftreg input[type="radio"],.giftreg input[type="checkbox"]{margin:4px 0 0;margin-top:1px \9;line-height:normal}
+.giftreg input[type="file"],.giftreg input[type="image"],.giftreg input[type="submit"],.giftreg input[type="reset"],.giftreg input[type="button"],.giftreg input[type="radio"],.giftreg input[type="checkbox"]{width:auto}
+.giftreg select,.giftreg input[type="file"]{height:30px;line-height:30px}
+.giftreg select{width:220px;background-color:#fff;border:1px solid #dce4ec}
+.giftreg select:focus,.giftreg input[type="file"]:focus,.giftreg input[type="radio"]:focus,.giftreg input[type="checkbox"]:focus{outline:thin dotted #333;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}
+.giftreg .gr-checkbox{min-height:20px;padding-left:20px}
+.giftreg .gr-checkbox input[type="checkbox"]{float:left;margin-left:-20px}
+.giftreg .gr-controls>.gr-checkbox:first-child{padding-top:5px}
+.giftreg .gr-input-xlarge{width:270px}
+.giftreg input,.giftreg textarea{margin-left:0}
+.giftreg input[type="radio"][disabled],.giftreg input[type="checkbox"][disabled],.giftreg input[type="radio"][readonly],.giftreg input[type="checkbox"][readonly]{background-color:transparent}
+.giftreg .gr-control-group.gr-warning .gr-control-label,.giftreg .gr-control-group.gr-warning .gr-help-block,.giftreg .gr-control-group.gr-warning .gr-help-inline{color:#e6bb0d}
+.giftreg .gr-control-group.gr-warning .gr-checkbox,.giftreg .gr-control-group.gr-warning input,.giftreg .gr-control-group.gr-warning select,.giftreg .gr-control-group.gr-warning textarea{color:#e6bb0d}
+.giftreg .gr-control-group.gr-warning input,.giftreg .gr-control-group.gr-warning select,.giftreg .gr-control-group.gr-warning textarea{border-color:#e6bb0d;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075)}
+.giftreg .gr-control-group.gr-warning input:focus,.giftreg .gr-control-group.gr-warning select:focus,.giftreg .gr-control-group.gr-warning textarea:focus{border-color:#b6940a;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #f6d963;-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #f6d963;box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #f6d963}
+.giftreg input:focus:invalid,.giftreg textarea:focus:invalid,.giftreg select:focus:invalid{color:#b94a48;border-color:#ee5f5b}
+.giftreg input:focus:invalid:focus,.giftreg textarea:focus:invalid:focus,.giftreg select:focus:invalid:focus{border-color:#e9322d;-webkit-box-shadow:0 0 6px #f8b9b7;-moz-box-shadow:0 0 6px #f8b9b7;box-shadow:0 0 6px #f8b9b7}
+.giftreg .gr-form-actions{padding:19px 20px 20px;margin-top:20px;margin-bottom:20px;background-color:#f5f5f5;border-top:1px solid #e5e5e5}
+.giftreg .gr-form-actions:before,.giftreg .gr-form-actions:after{display:table;line-height:0;content:""}
+.giftreg .gr-form-actions:after{clear:both}
+.giftreg .gr-help-block,.giftreg .gr-help-inline{color:#476481}
+.giftreg .gr-help-block{display:block;margin-bottom:10px}
+.giftreg .gr-help-inline{display:inline-block;padding-left:5px;vertical-align:middle}
+.giftreg .gr-form-horizontal input,.giftreg .gr-form-horizontal textarea,.giftreg .gr-form-horizontal select,.giftreg .gr-form-horizontal .gr-help-inline{display:inline-block;margin-bottom:0;vertical-align:middle}
+.giftreg .gr-control-group{margin-bottom:10px}
+.giftreg legend+.gr-control-group{margin-top:20px;-webkit-margin-top-collapse:separate}
+.giftreg .gr-form-horizontal .gr-control-group{margin-bottom:20px}
+.giftreg .gr-form-horizontal .gr-control-group:before,.giftreg .gr-form-horizontal .gr-control-group:after{display:table;line-height:0;content:""}
+.giftreg .gr-form-horizontal .gr-control-group:after{clear:both}
+.giftreg .gr-form-horizontal .gr-control-label{float:left;width:160px;padding-top:5px;text-align:right}
+.giftreg .gr-form-horizontal .gr-controls{margin-left:180px}
+.giftreg .gr-form-horizontal .gr-help-block{margin-bottom:0}
+.giftreg .gr-form-horizontal input+.gr-help-block,.giftreg .gr-form-horizontal select+.gr-help-block,.giftreg .gr-form-horizontal textarea+.gr-help-block{margin-top:10px}
+.giftreg .gr-form-horizontal .gr-form-actions{padding-left:180px}
+.giftreg table{max-width:100%;background-color:transparent;border-collapse:collapse;border-spacing:0}
+.giftreg .gr-table{width:100%;margin-bottom:20px}
+.giftreg .gr-table th,.giftreg .gr-table td{padding:8px;line-height:20px;text-align:left;vertical-align:top;border-top:1px solid #ddd}
+.giftreg .gr-table th{font-weight:bold}
+.giftreg .gr-table thead th{vertical-align:bottom}
+.giftreg .gr-table caption+thead tr:first-child th,.giftreg .gr-table caption+thead tr:first-child td,.giftreg .gr-table thead:first-child tr:first-child th,.giftreg .gr-table thead:first-child tr:first-child td{border-top:0}
+.giftreg .gr-table tbody+tbody{border-top:2px solid #ddd}
+.giftreg .gr-table .gr-table{background-color:#fff}
+.giftreg .gr-table-bordered{border:1px solid #ddd;border-collapse:separate;border-left:0;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px}
+.giftreg .gr-table-bordered th,.giftreg .gr-table-bordered td{border-left:1px solid #ddd}
+.giftreg .gr-table-bordered caption+thead tr:first-child th,.giftreg .gr-table-bordered caption+tbody tr:first-child th,.giftreg .gr-table-bordered caption+tbody tr:first-child td,.giftreg .gr-table-bordered thead:first-child tr:first-child th,.giftreg .gr-table-bordered tbody:first-child tr:first-child th,.giftreg .gr-table-bordered tbody:first-child tr:first-child td{border-top:0}
+.giftreg .gr-table-bordered thead:first-child tr:first-child>th:first-child,.giftreg .gr-table-bordered tbody:first-child tr:first-child>td:first-child,.giftreg .gr-table-bordered tbody:first-child tr:first-child>th:first-child{-webkit-border-top-left-radius:6px;border-top-left-radius:6px;-moz-border-radius-topleft:6px}
+.giftreg .gr-table-bordered thead:first-child tr:first-child>th:last-child,.giftreg .gr-table-bordered tbody:first-child tr:first-child>td:last-child,.giftreg .gr-table-bordered tbody:first-child tr:first-child>th:last-child{-webkit-border-top-right-radius:6px;border-top-right-radius:6px;-moz-border-radius-topright:6px}
+.giftreg .gr-table-bordered thead:last-child tr:last-child>th:first-child,.giftreg .gr-table-bordered tbody:last-child tr:last-child>td:first-child,.giftreg .gr-table-bordered tbody:last-child tr:last-child>th:first-child{-webkit-border-bottom-left-radius:6px;border-bottom-left-radius:6px;-moz-border-radius-bottomleft:6px}
+.giftreg .gr-table-bordered thead:last-child tr:last-child>th:last-child,.giftreg .gr-table-bordered tbody:last-child tr:last-child>td:last-child,.giftreg .gr-table-bordered tbody:last-child tr:last-child>th:last-child{-webkit-border-bottom-right-radius:6px;border-bottom-right-radius:6px;-moz-border-radius-bottomright:6px}
+.giftreg .gr-table-bordered caption+thead tr:first-child th:first-child,.giftreg .gr-table-bordered caption+tbody tr:first-child td:first-child{-webkit-border-top-left-radius:6px;border-top-left-radius:6px;-moz-border-radius-topleft:6px}
+.giftreg .gr-table-bordered caption+thead tr:first-child th:last-child,.giftreg .gr-table-bordered caption+tbody tr:first-child td:last-child{-webkit-border-top-right-radius:6px;border-top-right-radius:6px;-moz-border-radius-topright:6px}
+.giftreg .gr-table-striped tbody>tr:nth-child(odd)>td,.giftreg .gr-table-striped tbody>tr:nth-child(odd)>th{background-color:#f9f9f9}
+.giftreg .gr-table-hover tbody tr:hover>td,.giftreg .gr-table-hover tbody tr:hover>th{background-color:#f5f5f5}
+.giftreg .gr-table tbody tr.gr-warning>td{background-color:#e6bb0d}
+.giftreg .gr-table-hover tbody tr.gr-warning:hover>td{background-color:#cea70c}
+.giftreg .gr-caret{display:inline-block;width:0;height:0;vertical-align:top;border-top:4px solid #000;border-right:4px solid transparent;border-left:4px solid transparent;content:""}
+.giftreg .gr-well{min-height:20px;padding:19px;margin-bottom:20px;background-color:#ecf0f1;border:1px solid #d7e0e2;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.05);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.05);box-shadow:inset 0 1px 1px rgba(0,0,0,0.05)}
+.giftreg .gr-btn{display:inline-block;padding:4px 12px;margin-bottom:0;font-size:15px;line-height:20px;color:#7b8a8b;text-align:center;text-shadow:0 1px 1px rgba(255,255,255,0.75);vertical-align:middle;cursor:pointer;background-color:#bfc6cb;background-image:-moz-linear-gradient(top,#b4bcc2,#d0d5d9);background-image:-webkit-gradient(linear,0 0,0 100%,from(#b4bcc2),to(#d0d5d9));background-image:-webkit-linear-gradient(top,#b4bcc2,#d0d5d9);background-image:-o-linear-gradient(top,#b4bcc2,#d0d5d9);background-image:linear-gradient(to bottom,#b4bcc2,#d0d5d9);background-repeat:repeat-x;border:1px solid #ddd;border-color:#d0d5d9 #d0d5d9 #a6afb7;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);border-bottom-color:#c4c4c4;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);-moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05)}
+.giftreg .gr-btn:hover,.giftreg .gr-btn:focus,.giftreg .gr-btn:active,.giftreg .gr-btn.gr-active{color:#7b8a8b;background-color:#d0d5d9}
+.giftreg .gr-btn:active,.giftreg .gr-btn.gr-active{background-color:#b4bcc2 \9}
+.giftreg .gr-btn:hover,.giftreg .gr-btn:focus{color:#7b8a8b;text-decoration:none;background-position:0 -15px;-webkit-transition:background-position .1s linear;-moz-transition:background-position .1s linear;-o-transition:background-position .1s linear;transition:background-position .1s linear}
+.giftreg .gr-btn:focus{outline:thin dotted #333;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}
+.giftreg .gr-btn.gr-active,.giftreg .gr-btn:active{background-image:none;outline:0;-webkit-box-shadow:inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);-moz-box-shadow:inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);box-shadow:inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05)}
+.giftreg .gr-btn-small{padding:2px 12px;font-size:12.75px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
+.giftreg .gr-btn-primary.gr-active{color:rgba(255,255,255,0.75)}
+.giftreg .gr-btn-primary{color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25);background-color:#33485d;background-image:-moz-linear-gradient(top,#555,#3e5771);background-image:-webkit-gradient(linear,0 0,0 100%,from(#555),to(#3e5771));background-image:-webkit-linear-gradient(top,#555,#3e5771);background-image:-o-linear-gradient(top,#555,#3e5771);background-image:linear-gradient(to bottom,#555,#3e5771);background-repeat:repeat-x;border-color:#3e5771 #3e5771 #233140;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25)}
+.giftreg .gr-btn-primary:hover,.giftreg .gr-btn-primary:focus,.giftreg .gr-btn-primary:active,.giftreg .gr-btn-primary.gr-active{color:#fff;background-color:#3e5771}
+.giftreg .gr-btn-primary:active,.giftreg .gr-btn-primary.gr-active{background-color:#555 \9}
+.giftreg .gr-btn-link,.giftreg .gr-btn-link:active{background-color:transparent;background-image:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+.giftreg .gr-btn-link{color:#444;cursor:pointer;border-color:transparent;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
+.giftreg .gr-btn-link:hover,.giftreg .gr-btn-link:focus{color:#1dd2af;text-decoration:underline;background-color:transparent}
+.giftreg .gr-btn .gr-caret{margin-top:8px;margin-left:0}
+.giftreg .gr-btn-small .gr-caret{margin-top:8px}
+.giftreg .gr-btn-primary .gr-caret{border-top-color:#fff;border-bottom-color:#fff}
+.giftreg .gr-alert{padding:8px 35px 8px 14px;margin-bottom:20px;text-shadow:0 1px 0 rgba(255,255,255,0.5);background-color:#e6bb0d;border:1px solid transparent;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px}
+.giftreg .gr-alert,.giftreg .gr-alert h4{color:#e6bb0d}
+.giftreg .gr-alert h4{margin:0}
+.giftreg .gr-alert-success{color:#111;background-color:#111;border-color:transparent}
+.giftreg .gr-alert-success h4{color:#111}
+.giftreg .gr-alert-error{color:#e74c3c;background-color:#e74c3c;border-color:transparent}
+.giftreg .gr-alert-error h4{color:#e74c3c}
+.giftreg .gr-alert-info{color:#555;background-color:#555;border-color:transparent}
+.giftreg .gr-alert-info h4{color:#555}
+.giftreg .gr-alert-block{padding-top:14px;padding-bottom:14px}
+.giftreg .gr-alert-block>p,.giftreg .gr-alert-block>ul{margin-bottom:0}
+.giftreg .gr-alert-block p+p{margin-top:5px}
+.giftreg .gr-nav{margin-bottom:20px;margin-left:0;list-style:none}
+.giftreg .gr-nav>li>a{display:block}
+.giftreg .gr-nav>li>a:hover,.giftreg .gr-nav>li>a:focus{text-decoration:none;background-color:#ecf0f1}
+.giftreg .gr-nav>li>a>img{max-width:none}
+.giftreg .gr-nav>.gr-pull-right{float:right}
+.giftreg .gr-navbar{margin-bottom:20px;overflow:visible}
+.giftreg .gr-navbar-inner{min-height:50px;padding-right:20px;padding-left:20px;background-color:#555;background-image:-moz-linear-gradient(top,#555,#555);background-image:-webkit-gradient(linear,0 0,0 100%,from(#555),to(#555));background-image:-webkit-linear-gradient(top,#555,#555);background-image:-o-linear-gradient(top,#555,#555);background-image:linear-gradient(to bottom,#555,#555);background-repeat:repeat-x;border:1px solid #233140;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 1px 4px rgba(0,0,0,0.065);-moz-box-shadow:0 1px 4px rgba(0,0,0,0.065);box-shadow:0 1px 4px rgba(0,0,0,0.065)}
+.giftreg .gr-navbar-inner:before,.giftreg .gr-navbar-inner:after{display:table;line-height:0;content:""}
+.giftreg .gr-navbar-inner:after{clear:both}
+.giftreg .gr-navbar .gr-brand{display:block;float:left;padding:15px 20px 15px;margin-left:-20px;font-size:20px;font-weight:200;color:#fff;text-shadow:0 1px 0 #555}
+.giftreg .gr-navbar .gr-brand:hover,.giftreg .gr-navbar .gr-brand:focus{text-decoration:none}
+.giftreg .gr-navbar .gr-btn{margin-top:10px}
+.giftreg .gr-navbar .gr-nav{position:relative;left:0;display:block;float:left;margin:0 10px 0 0}
+.giftreg .gr-navbar .gr-nav.gr-pull-right{float:right;margin-right:0}
+.giftreg .gr-navbar .gr-nav>li{float:left}
+.giftreg .gr-navbar .gr-nav>li>a{float:none;padding:15px 15px 15px;color:#fff;text-decoration:none;text-shadow:0 1px 0 #555}
+.giftreg .gr-navbar .gr-nav>li>a:focus,.giftreg .gr-navbar .gr-nav>li>a:hover{color:#444;text-decoration:none;background-color:transparent}
+.giftreg .gr-navbar .gr-nav>.gr-active>a,.giftreg .gr-navbar .gr-nav>.gr-active>a:hover,.giftreg .gr-navbar .gr-nav>.gr-active>a:focus{color:#444;text-decoration:none;background-color:#233140;-webkit-box-shadow:inset 0 3px 8px rgba(0,0,0,0.125);-moz-box-shadow:inset 0 3px 8px rgba(0,0,0,0.125);box-shadow:inset 0 3px 8px rgba(0,0,0,0.125)}
+.giftreg .gr-pull-right{float:right}
+.giftreg .gr-pull-left{float:left}
+.giftreg h1{font-size:48px;font-weight:900}
+.giftreg h2{font-size:36px;font-weight:700}
+.giftreg h3{font-size:28px;font-weight:700}
+.giftreg h4{font-size:24px;font-weight:500}
+.giftreg h5{font-size:16px;font-weight:500}
+.giftreg h6{font-size:13px;font-weight:500;text-transform:none}
+.giftreg p{margin-bottom:1em}
+.giftreg .gr-page-header{border-bottom:0}
+.giftreg .gr-navbar .gr-brand{text-shadow:none}
+.giftreg .gr-navbar .gr-brand:hover{color:#1dd2af}
+.giftreg .gr-navbar .gr-navbar-inner{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+.giftreg .gr-navbar .gr-nav>li>a{text-shadow:none}
+.giftreg .gr-navbar .gr-nav>.gr-active>a,.giftreg .gr-navbar .gr-nav>.gr-active>a:hover,.giftreg .gr-navbar .gr-nav>.gr-active>a:focus{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+.giftreg .gr-navbar .gr-btn{margin-top:6px}
+.giftreg .gr-btn{padding:9px 20px;color:#fff;text-decoration:none;text-shadow:none;background-image:none;border:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;-webkit-transition:.25s;-moz-transition:.25s;transition:.25s}
+.giftreg .gr-btn:hover,.giftreg .gr-btn:focus{color:white;-webkit-transition:.25s;-moz-transition:.25s;transition:.25s}
+.giftreg .gr-btn:active,.giftreg .gr-btn.gr-active{color:rgba(255,255,255,0.75);-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+.giftreg .gr-btn-small{padding:2px 12px}
+.giftreg .gr-table tbody tr.gr-warning>td{color:#fff}
+.giftreg textarea,.giftreg input[type="text"],.giftreg input[type="password"],.giftreg input[type="datetime"],.giftreg input[type="datetime-local"],.giftreg input[type="date"],.giftreg input[type="month"],.giftreg input[type="time"],.giftreg input[type="week"],.giftreg input[type="number"],.giftreg input[type="email"],.giftreg input[type="url"],.giftreg input[type="search"],.giftreg input[type="tel"],.giftreg input[type="color"]{padding:7px 6px;text-indent:1px;border:2px solid #dce4ec;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+.giftreg textarea:focus,.giftreg input[type="text"]:focus,.giftreg input[type="password"]:focus,.giftreg input[type="datetime"]:focus,.giftreg input[type="datetime-local"]:focus,.giftreg input[type="date"]:focus,.giftreg input[type="month"]:focus,.giftreg input[type="time"]:focus,.giftreg input[type="week"]:focus,.giftreg input[type="number"]:focus,.giftreg input[type="email"]:focus,.giftreg input[type="url"]:focus,.giftreg input[type="search"]:focus,.giftreg input[type="tel"]:focus,.giftreg input[type="color"]:focus{border-color:#444;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+.giftreg .gr-control-group.gr-warning,.giftreg .gr-control-group.gr-warning input:focus,.giftreg .gr-control-group.gr-warning textarea:focus{border-color:#f1c40f;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+.giftreg input[type="file"]{line-height:16px}
+.giftreg legend{color:#555;border-bottom:0}
+.giftreg .gr-form-actions{background-color:#dde4e6;border-top:0;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px}
+.giftreg .gr-alert{color:#fff;text-shadow:none;background-color:#f39c12}
+.giftreg .gr-alert h1,.giftreg .gr-alert h2,.giftreg .gr-alert h3,.giftreg .gr-alert h4,.giftreg .gr-alert h5,.giftreg .gr-alert h6{color:#fff}
+.giftreg .gr-alert-error{background-color:#e74c3c}
+.giftreg .gr-alert-success{background-color:#111}
+.giftreg .gr-alert-info{background-color:#555}
+.giftreg .gr-well{border:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+.giftreg .gr-pull-right{float:right}
+.giftreg .gr-pull-left{float:left}
+/* Ours: the Bootstrap 2 grid as flex, the popover, small fixes against the Joomla template. */
+.giftreg{padding:0 0 20px}
+.giftreg .gr-row{display:flex;gap:20px;align-items:flex-start}
+.giftreg .gr-span6{flex:1 1 0;min-width:0}
+.giftreg .gr-offset6{margin-left:auto;flex:0 1 50%}
+.giftreg .gr-span8{width:620px;max-width:100%;margin:0 auto}
+@media (max-width:767px){.giftreg .gr-row{flex-direction:column;align-items:stretch}.giftreg .gr-offset6{flex:none}}
+.giftreg .gr-navbar .gr-nav>li{list-style:none}
+.giftreg .gr-navbar{margin-bottom:10px}
+.giftreg .gr-table{border-collapse:separate}
+.giftreg .gr-table th a,.giftreg .gr-table th a:hover{color:inherit}
+.giftreg a{text-decoration:none}
+.giftreg a:hover{text-decoration:underline}
+.giftreg img{vertical-align:middle}
+.giftreg form.gr-inline{display:inline;margin:0}
+.giftreg .gr-icon{border:0;background:none;padding:0;margin:0;line-height:1;cursor:pointer;vertical-align:middle}
+.giftreg .gr-pop{position:relative}
+.giftreg .gr-popover{position:absolute;z-index:10;left:100%;top:50%;transform:translateY(-50%);margin-left:10px;width:236px;
+ background:#fff;border:1px solid rgba(0,0,0,.2);border-radius:6px;box-shadow:0 5px 10px rgba(0,0,0,.2);text-align:left;white-space:normal;font-weight:400}
+.giftreg .gr-popover-title{margin:0;padding:8px 14px;font-size:14px;font-weight:400;line-height:18px;background:#f7f7f7;border-bottom:1px solid #ebebeb;border-radius:5px 5px 0 0}
+.giftreg .gr-popover-content{padding:9px 14px}
+@media print{.giftreg .gr-navbar,.giftreg .gr-noprint{display:none}}
+.giftreg a,.giftreg a:focus{text-decoration:none!important}
+.giftreg a:hover{text-decoration:underline!important}
+.giftreg .gr-btn:hover,.giftreg .gr-navbar a:hover,.giftreg th a:hover{text-decoration:none!important}
+.giftreg input:not([type=checkbox]):not([type=radio]),.giftreg textarea{box-sizing:content-box}
+.giftreg select[size],.giftreg select[multiple]{height:auto}
+.giftreg .gr-navbar .gr-nav>.gr-active>a,.giftreg .gr-navbar .gr-nav>.gr-active>a:hover{color:#fff!important}
+.giftreg .gr-nowrap{white-space:nowrap}
+.giftreg .gr-popover,.giftreg .gr-popover-title{color:#555;text-shadow:none;font-size:15px;line-height:20px;cursor:auto}
+.giftreg .gr-popover-title{font-size:14px;line-height:18px}

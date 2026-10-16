@@ -41,7 +41,7 @@ class Registry
 	{
 		$db = self::db();
 		$q  = $db->getQuery(true)
-			->select(['u.id', 'u.name', 'COUNT(i.id) AS items'])
+			->select(['u.id', 'u.name', 'COUNT(i.id) AS items', 'MAX(i.modified) AS updated'])
 			->from('#__users AS u')
 			->join('LEFT', '#__giftreg_items AS i ON i.user_id = u.id')
 			->where('u.block = 0')
@@ -244,11 +244,15 @@ class Registry
 		return $db->setQuery($q)->loadObjectList();
 	}
 
-	public static function dismissNotices(int $user): void
+	/** Mark one notice ($id) or all of them read. */
+	public static function dismissNotices(int $user, int $id = 0): void
 	{
 		$db = self::db();
 		$q  = $db->getQuery(true)->update('#__giftreg_notices')->set('is_read = 1')
 			->where('user_id = :u')->bind(':u', $user, ParameterType::INTEGER);
+		if ($id) {
+			$q->where('id = :id')->bind(':id', $id, ParameterType::INTEGER);
+		}
 		$db->setQuery($q)->execute();
 	}
 }

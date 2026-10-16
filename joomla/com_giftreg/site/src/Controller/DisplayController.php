@@ -22,7 +22,7 @@ class DisplayController extends BaseController
 		}
 		$view = $this->input->get('view', $this->default_view);
 		if ($view === 'shop' && $this->input->getInt('id', 0) === (int) $this->user()->id) {
-			$this->setRedirect($this->page('mylist'));       // no peeking at your own reservations
+			$this->setRedirect($this->page('family'));       // no peeking at your own reservations
 			return $this;
 		}
 		return parent::display(false, $urlparams);
@@ -42,7 +42,7 @@ class DisplayController extends BaseController
 		if ($id >= 0 && trim($data['description']) !== '') {
 			Registry::saveItem($me, $data, $id);
 		}
-		$this->setRedirect($this->page('mylist'));
+		$this->setRedirect($this->page('family'));
 	}
 
 	public function deleteItem()
@@ -52,7 +52,7 @@ class DisplayController extends BaseController
 		if ($item && (int) $item->user_id === $me) {
 			Registry::deleteItem($item, $this->user()->name);
 		}
-		$this->setRedirect($this->page('mylist'));
+		$this->setRedirect($this->page('family'));
 	}
 
 	public function reserve()
@@ -76,19 +76,19 @@ class DisplayController extends BaseController
 	{
 		$this->begin();
 		Registry::saveEvent($this->input->post->getArray(['description' => 'string', 'eventdate' => 'string', 'recurring' => 'int']));
-		$this->setRedirect($this->page('family') . '#dates');
+		$this->setRedirect($this->page('events'));
 	}
 
 	public function deleteEvent()
 	{
 		$this->begin();
 		Registry::deleteEvent($this->input->post->getInt('id', 0));
-		$this->setRedirect($this->page('family') . '#dates');
+		$this->setRedirect($this->page('events'));
 	}
 
 	public function dismissNotices()
 	{
-		Registry::dismissNotices($this->begin());
+		Registry::dismissNotices($this->begin(), $this->input->post->getInt('id', 0));
 		$this->setRedirect($this->page('family'));
 	}
 
